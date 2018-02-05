@@ -35,11 +35,11 @@ arima(df, order = c(6,0,6))
 #stationary by seasonal decomposition-method2
 install.packages("forecast")
 library(forecast)
-decompose_beer <-decompose(data, "multiplicative")
-plot(decompose_beer)
-adjust_beer = data/decompose_beer$seasonal
-plot(adjust_beer)
-df <-diff(log(adjust_beer))
+decompose_data <-decompose(data, "multiplicative")
+plot(decompose_data)
+adjust_data = data/decompose_data$seasonal
+plot(adjust_data)
+df <-diff(log(adjust_data))
 plot(df)
 acf(df, 10)
 pacf(df,10)
